@@ -1,0 +1,26 @@
+package OOP_work1;
+
+ class Dice_test {
+    public static void main(String[] args) {
+        System.out.println( "aa" ) ;
+    }
+} // class dice_test // six
+
+class dice_test {
+
+    private int point ;
+
+    public void TossDice() {
+        ;// random generate a num
+    } // TossDice()
+
+    public int GetPoint() {
+        return point ;
+    } // GetPoint()
+} // class dice_test // six
+
+class Dice_eight extends dice_test {
+    public void TossDice() {
+        ;
+    } // TossDice 
+} // dice_eight
