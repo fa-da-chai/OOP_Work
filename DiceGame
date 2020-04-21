@@ -25,7 +25,7 @@ class Player {
     private Dice dice1, dice2 ;
     private Dice_eight dice3 ;
 
-    public void Player() {
+    public Player() {
         dice1 = new Dice() ;
         dice2 = new Dice() ;
         dice3 = new Dice_eight() ;
