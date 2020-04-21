@@ -1,0 +1,98 @@
+import java.util.Random ;
+
+class Dice {
+    protected int point ;
+
+    public void TossDice() {
+        Random ran = new Random() ;// random generate a num
+        point = ran.nextInt(6)+1 ;
+    } // TossDice()
+
+    public int GetPoint() {
+        return point ;
+    } // GetPoint()
+} // class dice_test // six
+
+class Dice_eight extends Dice {
+    public void TossDice() {
+        Random ran = new Random() ;// random generate a num
+        point = ran.nextInt(8)+1 ;
+    } // TossDice 
+} // dice_eight
+
+class Player {
+    private int winSum ;
+    private Dice dice1, dice2 ;
+    private Dice_eight dice3 ;
+
+    public void Player() {
+        dice1 = new Dice() ;
+        dice2 = new Dice() ;
+        dice3 = new Dice_eight() ;
+    } // Player()
+
+    public void ThrowDice() {
+        dice1.TossDice() ;
+        dice2.TossDice() ;
+        dice3.TossDice() ;
+    } // ThrowDice()
+
+    public void AddWinSum() {
+        winSum++ ;
+    } // SetWinSum()
+
+    public int GetWinSum() {
+        return winSum ;
+    } // GetWinSum()
+
+    public int GetDice6Sum() { // return dice point
+        return dice1.GetPoint() + dice2.GetPoint() ;
+    } // GetDice6()
+
+    public int GetDice8() {
+        return dice3.GetPoint() ;
+    } // GetDice8()
+} // class Player
+
+class DiceGame {
+    public static void main( String[] args ) {
+        int drawSum = 0 ;
+        Player Tom = new Player() ;
+        Player Mary = new Player() ;
+        for ( int i = 0 ; i < 10 ; i++ ) {
+            Tom.ThrowDice() ;
+            Mary.ThrowDice() ;
+            drawSum = drawSum + Compare( Tom, Mary ) ;
+        } // for
+
+        System.out.println( "Tom wins:" + Tom.GetWinSum() ) ;
+        System.out.println( "Mary wins:" + Mary.GetWinSum() ) ;
+        System.out.println( "Draw:" + drawSum ) ;
+    } // main()
+
+    public static int Compare( Player p1, Player p2 ) { // when draw return 1
+        if ( p1.GetDice6Sum() > p2.GetDice6Sum() ) {
+            p1.AddWinSum() ;
+        } // if
+
+        else if ( p1.GetDice6Sum() < p2.GetDice6Sum() ) {
+            p2.AddWinSum() ;
+        } // else if
+
+        else {
+            if ( p1.GetDice8() > p2.GetDice8() ) {
+                p1.AddWinSum() ;
+            } // if
+
+            else if ( p1.GetDice8() < p2.GetDice8() ) {
+                p2.AddWinSum() ;
+            } // else if
+
+            else {
+                return 1 ;
+            } // else
+        } // else
+
+        return 0 ;
+    } // Compare()
+} // class DiceGame
