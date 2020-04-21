@@ -1,0 +1,34 @@
+
+public class Compare_test {
+    public static void main( String[] args ) {
+        Compare( 5, 5, 7, 4 ) ;
+    } // main()
+
+    public static int Compare( int dice6Sum1, int dice6Sum2,
+                               int dice8_1, int dice8_2 ) {
+        if ( dice6Sum1 > dice6Sum2 ) {
+            System.out.println( "p1 win" ) ;
+        } // if
+
+        else if ( dice6Sum1 < dice6Sum2 ) {
+            System.out.println( "p2 win" ) ;
+        } // else if
+
+        else {
+            if ( dice8_1 > dice8_2 ) {
+                System.out.println( "p1 win" ) ;
+            } // if
+
+            else if ( dice8_1 < dice8_2 ) {
+                System.out.println( "p2 win" ) ; ;
+            } // else if
+
+            else {
+                System.out.println( "draw" ) ;
+                return 1 ;
+            } // else
+        } // else
+
+        return 0 ;
+    } // Compare()
+} // class Compare_test
