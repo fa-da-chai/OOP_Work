@@ -2,7 +2,7 @@ import java.util.Random ;
 
 class Dice_test {
     public static void main(String[] args) {
-        dice_test dice = new dice_test() ;
+        Dice dice = new Dice() ;
         Dice_eight dice1 = new Dice_eight() ;
         dice.TossDice() ;
         dice1.TossDice() ;
@@ -11,7 +11,7 @@ class Dice_test {
     } // main
 } // class dice_test // six
 
-class dice_test {
+class Dice {
 
     protected int point ;
 
@@ -25,7 +25,7 @@ class dice_test {
     } // GetPoint()
 } // class dice_test // six
 
-class Dice_eight extends dice_test {
+class Dice_eight extends Dice {
     public void TossDice() {
         Random ran = new Random() ;// random generate a num
         point = ran.nextInt(8)+1 ;
